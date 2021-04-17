@@ -13,9 +13,9 @@ export default function AddExpense({addToList,currentBudget}) {
 
     //Input change function
     const handleChange = (e) => {
-        const {value} = e.target
+        const {value,name} = e.target
         
-        if(isNaN(value)) {
+        if(name === "name") {
             return setexpenseName(value)
         }
         return setExpenseValue(parseInt(value))
