@@ -33,7 +33,7 @@ function App() {
     <>
       <div className="container">
           <div className="main-container">
-              <h1>Gasto Semanal</h1>
+              <h1>Control de presupuesto</h1>
 
               <div className="contenido-principal contenido">
                   {

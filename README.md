@@ -1,35 +1,45 @@
 # Control de presupuesto
-
-Deployed: [Control Presupuesto](https://control-presupuesto-react.vercel.app/)
+**Deployed**: [Control Presupuesto](https://control-presupuesto-react.vercel.app/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Español
 
-Aplicación en la cual el usuario puede cargar un presupuesto e ir añadiendo gastos. A medida que el monto restante va disminuyendo su color se va modificando advirtiéndole al usuario el estado del mismo:
+A. **Español**
 
-- +50%: verde.
-- -50%: naranja.
-- -25%: rojo.
+B. **English**
 
-Es posible eliminar cualquier gasto de la lista, actualizando la misma.
+## A. Español
 
-**Validaciones**:
-- Con mensaje personalizado en todos los inputs.
+Aplicación de **control de presupuesto y gastos**. Un usuario puede cargar el presupuesto total que tiene definido para algo en particular e ir agregando los gastos relacionados al mismo.
+
+A medida que el dinero restante va disminuyendo, su color se va modificando advirtiéndole visualmente al usuario que porcentaje del monto inicial tiene restante.
+
+- Verde: +50%.
+- Naranja: -50%.
+- Rojo: -25%
+
+Es posible eliminar cualquier gasto de la lista, actualizando tanto la lista como el monto restante.
+
+### Validaciones
+- mensaje de error personalizado en todos los inputs.
 - PropTypes en todos los componentes.
 
 
 
-## English
+## B. English
 
-Application in which the user can load a budget and add expenses. As the remaining amount decreases, its color changes, warning the user of its status:
 
-- +50%: green.
-- -50%: orange.
-- -25%: red.
+**Budget and expense control application**. Users can upload their total budget and add the related expenses.
 
-It is possible to eliminate any expense from the list, updating it.
+As the remaining money decreases, its color changes, visually signaling the user what percentage of the initial amount is remaining.
 
-**Validations**:
-- With personalized message on all inputs.
+- Green: +50%
+- Orange: -50%
+- Red: -25%
+
+It is possible to remove any expense from the list, thus updating both the list and the remaining amount.
+
+### Validations
+
+- Custom error message for all inputs.
 - PropTypes in all components.
