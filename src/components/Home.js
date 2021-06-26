@@ -1,80 +1,74 @@
-import React,{useState} from 'react'
-import PropTypes from 'prop-types';
+import React, { useState } from "react"
+import PropTypes from "prop-types"
 import Error from "./Error"
-import InputField from './InputField';
+import InputField from "./InputField"
 
-export default function Home({setInitialBudget,setCurrentBudget,setShowHome}) {
+export default function Home({
+  setInitialBudget,
+  setCurrentBudget,
+  setShowHome,
+}) {
+  const [budgetValue, setBudgetValue] = useState("")
+  const [error, setError] = useState("")
 
-    const [budgetValue, setBudgetValue] = useState("")
-    const [error, setError] = useState("")
+  const handleChange = (e) => {
+    const { value } = e.target
+    if (!value) {
+      return setBudgetValue(e.target.value)
+    }
+    return setBudgetValue(parseInt(e.target.value))
+  }
 
-    const handleChange = (e) => {
-        const {value} = e.target
-        if(!value) {
-            return setBudgetValue(e.target.value)
-        }
-        return setBudgetValue(parseInt(e.target.value))
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    let validationError = ""
+
+    if (budgetValue === "") {
+      validationError = "Debes ingresar un presupuesto"
+    } else if (budgetValue < 1) {
+      validationError = "El presupuesto debe ser mayor a 0"
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-
-        let validationError = "";
-
-        //Validación dato ingresado
-        if(budgetValue==="") {
-            validationError = "Debes ingresar un presupuesto"
-        } else if(budgetValue < 1) {
-            validationError = "El presupuesto debe ser mayor a 0"
-        }
-
-        //cambiando el estado de error
-        if(validationError) {
-            return setError(validationError)
-        } else {
-            setError("")
-        }
-
-        //asignando el presupuesto inicial
-        setInitialBudget(budgetValue)
-        setCurrentBudget(budgetValue)
-
-        //Cambiando la renderización del componente Home.js a false
-        setShowHome(false)
-        return
+    if (validationError) {
+      return setError(validationError)
+    } else {
+      setError("")
     }
 
-    return (
-        <>
-            <h2>Coloca tu presupuesto</h2>
+    setInitialBudget(budgetValue)
+    setCurrentBudget(budgetValue)
 
-            {error && <Error message={error}/>}
+    setShowHome(false)
+    return
+  }
 
-            <form action=""
-                onSubmit={handleSubmit}
-            >
+  return (
+    <>
+      <h2>Ingresa tu presupuesto</h2>
 
-                <InputField 
-                    type="number"
-                    name="budget"
-                    className="u-full-width"
-                    placeholder="Ingresa tu presupuesto"
-                    onChange={handleChange}
-                    value={budgetValue}
-                />
+      {error && <Error message={error} />}
 
-                <button
-                    type="submit"
-                    className="button-primary u-full-width"
-                >Definir presupuesto</button>
+      <form action="" onSubmit={handleSubmit}>
+        <InputField
+          type="number"
+          name="budget"
+          className="u-full-width"
+          placeholder="Ej: 750"
+          onChange={handleChange}
+          value={budgetValue}
+        />
 
-            </form>
-        </>
-    )
+        <button type="submit" className="button-primary u-full-width">
+          Definir presupuesto
+        </button>
+      </form>
+    </>
+  )
 }
 
 Home.propTypes = {
-    setInitialBudget: PropTypes.func,
-    setCurrentBudget: PropTypes.func,
-    setShowHome: PropTypes.func,
-  };
+  setInitialBudget: PropTypes.func,
+  setCurrentBudget: PropTypes.func,
+  setShowHome: PropTypes.func,
+}
