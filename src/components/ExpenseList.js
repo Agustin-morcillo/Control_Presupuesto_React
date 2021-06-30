@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+
 import Expense from "./Expense"
 
 export default function ExpenseList({ expenseList, removeFromList }) {

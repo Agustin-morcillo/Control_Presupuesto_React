@@ -1,13 +1,10 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
-import Error from "./Error"
-import InputField from "./InputField"
 
-export default function Home({
-  setInitialBudget,
-  setCurrentBudget,
-  setShowHome,
-}) {
+import InputField from "./InputField"
+import Error from "./Error"
+
+export default function Home({ setInitialBudget, setCurrentBudget, setShowHome,}) {
   const [budgetValue, setBudgetValue] = useState("")
   const [error, setError] = useState("")
 

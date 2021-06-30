@@ -1,19 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
+
 import Error from "./Error"
 
-export default function InputField(props) {
-  const {
-    divClass,
-    label,
-    type,
-    name,
-    className,
-    placeholder,
-    onChange,
-    value,
-    error,
-  } = props
+export default function InputField({divClass,label, type, name,className, placeholder, onChange, value, error}) {
   return (
     <div className={divClass}>
       {label && <label htmlFor="">{label}</label>}
